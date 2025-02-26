@@ -1,0 +1,32 @@
+﻿<Window x:Class="UdpChatWpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="UDP Чат" Height="400" Width="500">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Поля ввода имени и портов -->
+        <StackPanel Orientation="Horizontal" Margin="10">
+            <TextBlock Text="Имя:" VerticalAlignment="Center"/>
+            <TextBox x:Name="textBoxUsername" Width="100" Margin="5,0,10,0"/>
+            <TextBlock Text="Порт приема:" VerticalAlignment="Center"/>
+            <TextBox x:Name="textBoxLocalPort" Width="60" Margin="5,0,10,0"/>
+            <TextBlock Text="Порт отправки:" VerticalAlignment="Center"/>
+            <TextBox x:Name="textBoxRemotePort" Width="60" Margin="5,0,10,0"/>
+            <Button Content="Старт" Click="StartChat_Click"/>
+        </StackPanel>
+
+        <!-- Список сообщений -->
+        <ListBox x:Name="listBoxMessages" Grid.Row="1" Margin="10"/>
+
+        <!-- Поле ввода сообщения и кнопка отправки -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="10">
+            <TextBox x:Name="textBoxInput" Width="350" KeyDown="TextBoxInput_KeyDown"/>
+            <Button Content="Отправить" Click="SendButton_Click" Width="80" Margin="10,0,0,0"/>
+        </StackPanel>
+    </Grid>
+</Window>
